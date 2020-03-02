@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--가장 최신 버전 선택-->
+        <meta name="author" content="sroovy">
+        <meta name="description" content="maxim coffee website">
+        <meta name="keywords" content="맥심, 커피, 동서식품">
+        <title>Maxim coffee</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/swiper.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="icon/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" href="icon/favicon_72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="96x96" href="icon/favicon_96.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icon/favicon_144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="192x192" href="icon/favicon_192.png" />
+
+        <!-- 페이스북 메타 태그
+        <meta property="og:title" content="메가박스 사이트 만들기" />
+        <meta property="og:url" content="https://github.com/webstoryboy/megabox2019" />
+        <meta property="og:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg" />
+        <meta property="og:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다." />
+    
+        트위터 메타 태그
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="메가박스 사이트 만들기">
+        <meta name="twitter:url" content="https://github.com/webstoryboy/megabox2019/">
+        <meta name="twitter:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg">
+        <meta name="twitter:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
+        -->
+
+        <!-- 웹 폰트 -->
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,200,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800&display=swap" rel="stylesheet">
+        
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <!-- HTLM5shiv ie6~8 -->
+        <!--[if lt IE 9]> 
+        <script src="assets/js/html5shiv.min.js"></script>
+        <script type="text/javascript">
+            alert("현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!");
+        </script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <!-- 스킵 메뉴
+            <div id="skip">
+                <a rel="bookmark" href="#movie">최신 영화 소식</a>
+                <a rel="bookmark" href="#event">새로운 이벤트</a>
+                <a rel="bookmark" href="#new">새로운 영화</a>
+            </div>
+        스킵 메뉴 -->
+
+
+        <!-- 헤더영역 -->
+            <header id="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="header">
+                            <h1>
+                                <a href="#">
+                                    <img src="img/logo.png" alt="Maxim">
+                                </a>
+                            </h1>
+                            <nav id="mNav">
+                                <h2 class="ir_so">맥심커피 전체메뉴</h2>
+                                <a href="#" class="ham"><span></span></a>
+                            </nav>
+                            <nav class="nav">
+                                <ul class="gnb">
+                                    <li><a href="#">ABOUT</a>
+                                        <ul class="dropdown" style="display:none">
+                                            <li><a href="#">맥심 소개</a></li>
+                                            <li><a href="#">맥심 히스토리</a></li>
+                                            <li><a href="#">맥심 슬로건</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">PRODUCT</a>
+                                        <ul class="dropdown" style="display:none">
+                                            <li><a href="#">신제품 소개</a></li>
+                                            <li><a href="#">커피믹스</a></li>
+                                            <li><a href="#">인스턴트 R&G</a></li>
+                                            <li><a href="#">R&G 커피</a></li>
+                                            <li><a href="#">RTD 커피</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">NEWS</a>
+                                        <ul class="dropdown" style="display:none">
+                                            <li><a href="#">공지사항</a></li>
+                                            <li><a href="#">TV/CF</a></li>
+                                            <li><a href="#">맥심 채널</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">CUSTOMER</a>
+                                        <ul class="dropdown" style="display:none">
+                                            <li><a href="#">맥심 커뮤니티</a></li>
+                                            <li><a href="#">고객 센터</a></li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul class="login">
+                                    <li><a href="#"><span class="log"></span>LOGIN</a></li>
+                                    <li><a href="#">MEMBERSHIP</a></li>
+                                </ul>
+                            </nav>
+                        </div> <!-- //header -->
+                    </div> <!-- //row -->
+                </div> <!-- //container -->
+            </header> 
+        <!-- //헤더영역 -->    
+
+        <!-- 배너 영역 -->
+        <section id="banner">
+            <h2 class="ir_so">신상품 배너</h2>
+            <div class="slider">
+                <div class="slideshow_slides">
+                    <div class="banner1" style="display: block;">
+                        <div class="container">
+                            <div class="row">
+                                <h2><img src="img/logo_fff.png" alt="maximlogo"><em>커피라는 행복, 맥심</em></h2>
+                                <p>세상의 모든 순간이 더 행복해지도록 맥심이 더 좋아졌습니다. </p>
+                            </div>  <!-- //row -->
+                        </div>  <!-- //container -->
+                    </div> <!-- //banner1 -->
+                    <div class="banner2" style="display: block;">
+                        <div class="container">
+                            <div class="row">
+                                <h2><span class="six"></span>
+                                    <div class="wrap">
+                                        <em>초 라떼</em>
+                                        <strong>맥심 모카골드 심플라떼</strong>
+                                    </div>
+                                </h2>
+                                <p>라떼를 즐기는<br>가장 심플한 방법? </p>
+                            </div>  <!-- //row -->
+                        </div>  <!-- //container -->
+                    </div> <!-- //banner2 -->
+                    <div class="banner3" style="display: block">
+                        <div class="container">
+                            <div class="row">
+                                <h2>
+                                    <em>세상이 기다렸던<br>스윗한 콜라보</em>
+                                    <span class="kanu"></span>
+                                    <strong>티라미수 라떼</strong>
+                                </h2>
+                            </div>  <!-- //row -->
+                        </div>  <!-- //container -->
+                    </div> <!-- //banner3 -->
+                </div> <!--// slideshow_slides-->
+
+                <div class="pagination">
+                    <div class="current_bar"></div>
+                </div>
+                <div class="slideshow_nav">
+                    <button class="next"><span class="ir_so">next</span></button>
+                    <button class="prev"><span class="ir_so">prev</span></button>
+                </div>
+            </div> <!-- //slider -->
+        </section>
+        <!-- //배너 영역 -->
+
+        <!-- ABOUT-->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about">
+                        <h3>ABOUT</h3>
+                        <p>"맥심은 언제 어디서나 믿고<br> 즐길 수 있는 좋은 커피 입니다." </p>
+                        <ul class="slogan">
+                            <li>
+                                <span class="coffeebean"></span>
+                                <em>좋은 원두</em>
+                                <p>커피의 맛을 깨우는 산미, 머금을 때 느껴지는 깊은 풍미, 원두 그대로의 맛과 향을 
+                                    전하기 위해 고급 아라비카 원두의 비율을 80%로 높였습니다. 최상급의 원두만을 
+                                    선별하는 맥심만의 원두 등급으로 고품질의 원두만을 고집합니다.</p>
+                            </li>
+                            <li>
+                                <span class="tech"></span>
+                                <em>좋은 기술</em>
+                                <p>맥심의 기술력 바탕에는 산지 원두의 살아있는 맛과 향을 고스란히 전하고자 하는 
+                                    철학이 담겨있습니다. 최적화된 로스팅 기술과 추출 공법, 맥심의 커피 전문
+                                    가들이 찾아낸 향 회수 기술로 커피 본연의 맛과 향을 지켜가고 있습니다.</p>
+                            </li>
+                            <li>
+                                <span class="coffee"></span>
+                                <em>좋은 커피</em>
+                                <p>맥심은 국내 커피 역사를 이끌어 온 정통성과 세계적인 기술력, 커피전문가의 
+                                    노하우로 고품질의 커피 본연의 맛과 향을 즐길 수 있는 좋은 커피입니다.
+                                    세상의 모든 순간이 더 행복해지도록 맥심이 좋은 커피로 다가갑니다.</p>
+                            </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //ABOUT-->
+
+    </body>
+</html>

@@ -1,0 +1,590 @@
+@charset "utf-8";
+
+/* 레이아웃  */
+#header {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0;
+    z-index: 100;
+}
+#mNav {
+    display: none;
+    position: absolute;
+    right: 14px; top: 14px;
+}
+#banner {}
+#about {
+    background-color: #f6f2ec;
+}
+/* 센터 정렬 */
+.container {
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+}
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 40px;
+    color: #e94d50;
+}
+/* 로우 영역 */
+.row {padding: 0 28px;}
+
+
+/* 헤더 영역 */
+.header {
+}
+.header::after {content: ""; display: block; clear: both;}
+.header h1 {
+    width: 15%;
+    float: left;
+}
+.header h1 a {
+    display: block;
+    padding: 18px 65px 18px 0;
+}
+.header h1 a img {
+    width: 120px;
+}
+
+.nav {
+    width: 85%;
+    float: left;
+}
+.nav .gnb {
+    width: 68%;
+    margin-right: 2%;
+}
+.nav .gnb > li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.nav .gnb > li > a {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    padding: 2.3em 0.5em 1.6em;
+}
+.nav .gnb .dropdown {
+    background-color: rgba(230, 48, 57, 0.7);
+    border-top: 2px solid #fff;
+    padding: 1em;
+}
+.nav .gnb .dropdown li a {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    padding: 1em 2em;
+    transition: 0.3s;
+}
+
+.nav .login {
+    float: right;
+    width: 30%;
+}
+.nav .login li {
+    float: left;
+    position: relative;
+}
+.nav .login li a {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    padding: 3.2em 0.5em 2em;
+}
+.nav .login li a span.log {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    background: url(../img/login.png) no-repeat center center /cover;
+    vertical-align: middle;
+    margin: -4px 3px 0 0;
+}
+.nav .login li:first-child:after {
+    content: "";
+    width: 1px;
+    height: 10px;
+    background: #fff;
+
+    position: absolute;
+    top: 46px; right: -1px; 
+}
+
+/* 모바일 메뉴 */
+.header #mNav .ham {
+    display: block;
+    width: 25px; 
+    height: 10px;
+    padding: 15px 10px 10px;
+}
+.header #mNav .ham span {
+    position: relative;
+    display: block;
+    width: 25px;
+    height: 4px;
+    background-color: #e94d50;
+}
+.header #mNav .ham span:before {
+    content: "";
+    width: 25px;
+    height: 4px;
+    background-color: #e94d50;
+    position: absolute;
+    left: 0; bottom: -8px;
+}
+.header #mNav .ham span:after {
+    content: "";
+    width: 25px;
+    height: 4px;
+    background-color: #e94d50;
+    position: absolute;
+    left: 0; top: -8px;
+}
+
+/* 배너 영역 */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+.slider .slideshow_slides {
+    position: absolute;
+    top: 0; left: 0;
+    width: 300%;
+    height: 100%;
+}
+.slider .slideshow_slides > div {
+    width: 33.3333%;
+    float: left;
+}
+.slider .banner1 {
+    width: 100%;
+    height: 100%;
+    background: url(../img/banner1.jpg) no-repeat center center /cover;
+}
+.slider .banner1 h2 {
+    padding-top: 220px;
+    text-align: center;
+}
+.slider .banner1 h2 img {
+    width: 400px;
+}
+.slider .banner1 h2 em {
+    display: block;
+    font-size: 36px;
+    color: #fff;
+    font-weight: 300;
+    margin-top: 0.5em;
+}
+.slider .banner1 p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+    margin-top: 1.45em;
+}
+.slider .pagination {
+    position: absolute;
+    bottom: 45px; left: 50%;
+    transform: translateX(-50%);
+    width: 330px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 10;
+}
+.slider .pagination .current_bar {
+    width: 110px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1.0);
+    z-index: 10;
+}
+.slider button {
+    width: 32px;
+    height: 65px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    opacity: 0.7;
+}
+.slider button.next {
+    right: 5%;
+    background: url(../img/next.png) no-repeat center center /cover;
+}
+.slider button.prev {
+    left: 5%;
+    background: url(../img/prev.png) no-repeat center center /cover;
+}
+
+.slider .banner2 {
+    width: 100%;
+    height: 100%;
+    background: url(../img/banner2.jpg) no-repeat center center /cover;
+}
+.slider .banner2 h2 {
+    position: absolute;
+    top: 380px; left: 130px;
+    font-size: 40px;
+    color: #e0dec1;
+    line-height: 1.3;
+}
+.slider .banner2 h2 span.six {
+    display: inline-block;
+    width: 100px;
+    height: 200px;
+    background: url(../img/six.png) no-repeat center center /cover;
+    margin-right: 10px;
+}
+.slider .banner2 h2 .wrap {
+    display: inline-block;
+    vertical-align: bottom;
+    padding-bottom: 10px;
+}
+.slider .banner2 h2 em {
+    font-weight: 300;
+}
+.slider .banner2 h2 strong {
+    display: block;
+    font-weight: bold;
+}
+.slider .banner2 p {
+    font-size: 32px;
+    font-weight: 200;
+    color: #e0dec1;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    position: absolute;
+    top: 180px; right: 100px;
+}
+
+.slider .banner3 {
+    width: 100%;
+    height: 100%;
+    background: url(../img/banner3.jpg) no-repeat center center /cover;
+}
+.slider .banner3 h2 {
+    position: absolute;
+    top: 150px; right: 250px;
+    color: #fcd3c1;
+}
+.slider .banner3 h2 em {
+    display: block;
+    line-height: 1.2;
+    font-size: 40px;
+
+}
+.slider .banner3 h2 span.kanu {
+    display: block;
+    width: 270px;
+    height: 70px;
+    margin: 20px 0;
+    background: url(../img/kanu_logo.png) no-repeat center center /cover;
+}
+.slider .banner3 h2 strong {
+    display: block;
+    margin: 0 13%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.7;
+    background-color: #743027;
+}
+
+/* about */
+.about {
+    position: relative;
+    padding: 250px 0 100px;
+
+}
+.about h3 {
+    text-align: center;
+
+    position: relative;
+}
+.about h3:before {
+    content: "";
+    width: 3px;
+    height: 80px;
+    background-color: #e94d50;
+    position: absolute;
+    bottom: 90px; left: 50%;
+    transform: translateX(-50%);
+}
+.about > p{
+    font-size: 36px;
+    color: #e94d50;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1.3;
+    margin: 0.5em 0 3.0em;
+}
+.about .slogan {}
+.about .slogan:after {content: ""; display: block; clear: both;}
+.about .slogan li {
+    float: left;
+    width: 32%;
+    height: 530px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-right: 2%;
+    text-align: center;
+    padding: 4em 3em 3em;
+    position: relative;
+}
+.about .slogan li:last-child {
+    margin-right: 0;
+}
+
+.about .slogan li span {
+    margin: 0 auto;
+    display: block;
+}
+.about .slogan li span.coffeebean {
+    width: 100px;
+    height: 125px;
+    background: url(../img/coffeebean.png) no-repeat center center /cover;
+}
+.about .slogan li span.tech {
+    width: 100px;
+    height: 125px;
+    background: url(../img/doubleshot.png) no-repeat center center /cover;
+}
+.about .slogan li span.coffee {
+    width: 126px;
+    height: 126px;
+    background: url(../img/coffee.png) no-repeat center center /cover;
+}
+.about .slogan li em {
+    display: block;
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.about .slogan li p {
+    margin-top: 13%;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+
+@media (max-width: 1290px) {
+    .container {
+        width: 100%;
+    }
+}
+@media (max-width: 1024px) {
+
+    .slider .banner3 h2 {
+        right: 12%;
+    }
+}
+@media (max-width: 960px) {
+    .about h3 {
+        margin-bottom: 2em;
+    }
+    .about .slogan li:first-child {
+        margin: 0 2% 2% 51%;
+    }
+    .about .slogan li:last-child {
+        margin-left: 2%;
+    }
+    .about .slogan li {
+        width: 49%;
+        height: 490px;
+        margin: 0 0 2%;
+        padding: 3em 2em;
+    }
+    .about > p {
+        position: absolute;
+        width: 49%;
+        font-size: 30px;
+        box-sizing: border-box;
+        padding: 3em 2em;
+    }
+    .about > p br {display: none;}
+    
+}
+@media (max-width: 768px) {
+    body {background-color: #f6f2ec;}
+    .row {padding: 0 24px;}
+    #header {
+        height: 70px;
+        background-color: #fff;
+    }
+    .header #mNav{
+        display: block;
+        top: 19px;
+    }
+    .header h1{
+        width: 100%;
+        text-align: center;
+    }
+    .header h1 a {padding: 15px 0 0;}
+    .header h1 a img {width: 105px;}
+    .nav {display: none;}
+
+    .slider {
+        height: 550px;
+        margin-top: 70px;
+    }
+    .slider .banner1 h2 {padding-top: 180px;}
+    .slider .banner1 h2 img {width: 300px;}
+    .slider .banner1 h2 em {font-size: 28px;}
+    .slider .banner1 p {font-size: 18px;}
+
+    .slider .banner2 h2 {
+        font-size: 30px;
+        top: 330px; 
+    }
+    .slider .banner2 h2 span.six {
+        width: 75px;
+        height: 150px;
+    }
+    .slider .banner2 p {
+        top: 150px;
+        font-size: 25px;
+    }
+    .slider .pagination {
+        bottom: 30px;
+        width: 270px;
+    }
+    .slider .pagination .current_bar {width: 90px;}
+
+    .slider .banner3 h2 {
+        top: 85px;
+    }
+    .slider .banner3 h2 em {font-size: 28px;}
+    .slider .banner3 h2 span.kanu {
+        width: 190px;
+        height: 48px;
+        margin: 10px 0;
+    }
+    .slider .banner3 h2 strong {
+        font-size: 22px;
+    }
+    .slider button {
+        width: 25px; height: 50px;
+    }
+    .about {
+        padding-top: 100px;
+    }
+    .about .slogan {
+        margin-top: 100px;
+    }
+    .about h3 {
+        font-size: 30px;
+        margin-bottom: 0.7em;
+    }
+    .about h3:before {
+        height: 50px;
+        bottom: 50px;
+    }
+
+} 
+@media (max-width: 600px) {
+    .row {padding: 0 16px;}
+    .about .slogan li:first-child {
+        margin: 0 0 4%;
+    }
+    .about > p {
+        position: static;
+        width: 100%;
+        font-size: 22px;
+        box-sizing: border-box;
+        padding: 0;
+    }
+    .about .slogan {margin-top: 50px;}
+    .about .slogan li {
+        width: 100%;
+        height: auto;
+        margin: 0 0 3% 0;
+        
+    }
+    .about .slogan li:last-child{
+        margin-left: 0;
+    }
+    .about .slogan li em,
+    .about .slogan li p {
+        margin-top: 8%;
+    }
+
+}
+@media (max-width: 480px) {
+
+    #header {height: 50px;}
+    .header #mNav {
+        top: 11px; right: 7px;
+    }
+    .header h1 a {padding-top: 8px;}
+    .header h1 a img {width: 90px;}
+
+    .slider {
+        height: 450px;
+        margin-top: 50px;
+    } 
+    .slider .banner1 h2 {padding-top: 150px;}
+    .slider .banner1 h2 img {width: 200px;}
+    .slider .banner1 h2 em {font-size: 20px;}
+    .slider .banner1 p {font-size: 14px;}
+    
+    .slider .banner2 h2 {
+        top: 295px; left: 30px;
+        font-size: 22px;
+    }    
+    .slider .banner2 h2 span.six {
+        margin-right: 5px;
+        width: 50px;
+        height: 100px;
+    }
+    .slider .banner2 p {
+        top: 120px; right: 25px;
+        font-size: 20px;
+    }
+
+    .slider .banner3 h2 em {
+        font-size: 20px;
+    }
+    .slider .banner3 h2 span.kanu {
+        width: 160px;
+        height: 40px;
+    }
+    .slider .banner3 h2 strong {
+        font-size: 16px;
+    }
+    .slider .pagination {
+        width: 210px;
+        height: 2px;
+    }
+    .slider .pagination .current_bar {width: 70px;}
+    .slider button {display: none;}
+
+    .about > p {
+        font-size: 18px;
+    }
+    .about .slogan {margin-top: 60px;}
+    .about .slogan li span.coffeebean, 
+    .about .slogan li span.tech {
+        width: 80px;
+        height: 102px;
+    }
+    .about .slogan li span.coffee {
+        width: 80px;
+        height: 80px;
+    }
+    .about .slogan li em {
+        font-size: 22px;
+    }
+    .about .slogan li p {
+        font-size: 14px;
+    }
+
+@media (max-width: 360px) {
+}
