@@ -2,27 +2,19 @@ $(function () {
 
     //슬라이드 
 
-    var $container = $(".slider"),
-        $slideGroup =$(".slideshow_slides"),
-        $slides = $(".slideshow_slides > div"),
-        $nav = $container.find(".slideshow_nav"),
-        $indicator = $container.find(".pagination");
+    var $productSlide = $(".product_slide"),
+         $productList = $(".product_list"),
+         listWidth = $(".product_list li").outerWidth();
 
-               
-        var currentIndex = 0;
+        console.log(listWidth);
 
-        // next 버튼을 누르면
-        $nav.find(".next").click(function () {
-            $slideGroup.animate({"left":"-200%"}, function () {
-                $(this).removeAttr("style").children(":first").appendTo(this);
-            });
-        });
+    var $prev = $(".product_slide_nav .prev"),
+         $next = $(".product_slide_nav .next");
 
-        $nav.find(".prev").click(function () {
-            $slideGroup.animate({"left":"0%"}, function () {
-                $(this).removeAttr("style").children(":last").prependTo(this);
-            });
-        });
+
+         $next.click(function () {
+            $productList.animate({"left":"-416px"});
+         });
 
 
 
