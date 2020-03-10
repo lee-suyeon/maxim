@@ -362,6 +362,17 @@ p.title_sub {
     transform: translateX(-50%);
 }
 .about .slogan:after {content: ""; display: block; clear: both;}
+.about .slogan {
+    transform: translate(0, 50px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s
+}
+.about .slogan.show {
+    transform: translate(0,0);
+    opacity: 1;
+    visibility: visible;
+}
 .about .slogan li {
     float: left;
     width: 32%;
@@ -663,31 +674,18 @@ p.title_sub {
 }
 .news .news_contents {
     display: grid;
-    grid-gap: 18px;
+    grid-gap: 15px;
 }
 .news .news_contents .contents_title {
     display: block;
     position: absolute;
-    top: 15px; left: 15px;
+    top: 2%; left: 2%;
     color: #e94d50;
     font-size: 18px;
     font-weight: 500;
-    z-index: 10;
+    z-index: 100;
     padding: 0.3em;
     transition: 0.3s;
-}
-.news .news_contents .event:hover img,
-.news .news_contents .tv_cf:hover img,
-.news .news_contents .grand_open:hover img,
-.news .news_contents .new_product:hover img {
-    transform: scale(1.05);
-}
-.news .news_contents .event:hover .contents_title,
-.news .news_contents .tv_cf:hover .contents_title,
-.news .news_contents .grand_open:hover .contents_title,
-.news .news_contents .new_product:hover .contents_title {
-    background-color: #e94d50;
-    color: #fff;
 }
 .event {
     position: relative;
@@ -713,7 +711,19 @@ p.title_sub {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
 }
-
+.tv_cf .videowrapper {
+    position: relative;
+    padding-bottom: 50.25%;
+    padding-top: 25px;
+    height: 0;
+    }
+.tv_cf .videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    }
 .news_contents .overlay {
     display: none;
     position: absolute;
@@ -721,21 +731,35 @@ p.title_sub {
     left: 0; right: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 50;
+    transition: 0.3s;
 }
 .news_contents .overlay .more {
     width: 50px;
     height: 50px;
     background: url(../img/add.png) no-repeat center center /cover;
-    opacity: 0.7;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-  
+    cursor: pointer;
 }
 .news_contents .overlay .more span {
     display: block;
     margin-top: 55px;
     color: #fff;
+}
+.news_contents .overlay .play {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 90px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+}
+.news_contents .overlay .play .st0 {
+    fill: #fff;
+    opacity: 0.3;
+}
+.news_contents .overlay .play .st1 {
+    fill: #fff;
 }
 
 /* customer */
@@ -791,7 +815,6 @@ p.title_sub {
 /* footer */
 .footer {padding: 80px 0;}
 .footer .notice {
-    overflow: hidden;
     margin-bottom: 40px;
 }
 .footer .notice h4 {
@@ -803,11 +826,19 @@ p.title_sub {
     color: #fff;
     line-height: 30px;
 }
-.footer .notice ul {
+.footer .notice_rolling {
     float: left;
+    height: 2em;
     width: 75%;
-    height: 30px;
-    overflow: hidden;
+}
+.footer .notice ul {
+    position: relative;
+    top: 0;
+}
+
+.footer .notice li {
+    height: 2em;
+    line-height: 2em;
 }
 .footer .notice li .date {
     display: inline-block;
@@ -820,8 +851,10 @@ p.title_sub {
     color: #fff;
     font-size: 20px;
     font-weight: 300;
-    line-height: 30px;
     padding-left: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .footer .notice > span {
     float: left;
@@ -991,7 +1024,7 @@ p.title_sub {
 
     #customers .row {
         background-color: #fff;
-        padding: 24px;
+        padding: 24px 0;
         margin: 24px;
     }
     .customers {padding: 80px 0 0;}
@@ -1041,6 +1074,7 @@ p.title_sub {
     .slideshow .banner2 h2 {
         font-size: 30px;
         top: 330px; 
+        left: 90px;
     }
     .slideshow .banner2 h2 span.six {
         width: 75px;
@@ -1051,10 +1085,13 @@ p.title_sub {
         font-size: 25px;
     }
     .slideshow .pagination {
+        bottom: 0px;
+    }
+    .slideshow .pagination .pagination_bar{
         bottom: 30px;
         width: 270px;
     }
-    .slideshow .pagination .current_bar {width: 90px;}
+    .slideshow .pagination .pagination_bar .current {width: 90px;}
 
     .slideshow .banner3 h2 {
         top: 85px;
@@ -1096,7 +1133,7 @@ p.title_sub {
         margin-top: 13px;
     }
     .news .news_contents {
-        grid-gap: 15px;
+        grid-gap: 12px;
     }
     .event {
         grid-column: 1 / 2;
@@ -1136,7 +1173,10 @@ p.title_sub {
     .footer .notice > span > a {display: none;}
     .footer .notice li .date {display: none;}
     .footer_info {text-align: center;}
-    .footer .notice li a {font-size: 16px;}
+    .footer .notice li a {
+        text-align: center;
+        font-size: 16px;
+    }
 } 
 @media (max-width: 600px) {
     .row {padding: 0 16px;}
@@ -1167,7 +1207,7 @@ p.title_sub {
         margin-top: 8%;
     }
     .guide {
-        padding: 90px 20px 20px
+        padding: 80px 20px 20px
     }
     .guide h4 {
         font-size: 36px;
@@ -1194,7 +1234,8 @@ p.title_sub {
         margin: 8px;
     }
     .news {padding-top: 60px;}
-    
+    .news .news_contents {grid-gap: 8px;}
+
     #customers .row {
         padding: 8px;
         margin: 8px;
@@ -1257,11 +1298,11 @@ p.title_sub {
     .slideshow .banner3 h2 strong {
         font-size: 16px;
     }
-    .slideshow .pagination {
+    .slideshow .pagination .pagination_bar {
         width: 210px;
         height: 2px;
     }
-    .slideshow .pagination .current_bar {width: 70px;}
+    .slideshow .pagination .pagination_bar .current {width: 70px;}
     .slideshow button {display: none;}
 
     .about > p {
@@ -1301,14 +1342,14 @@ p.title_sub {
     }
 
     .news {padding-top: 30px;}
-    .news .news_contents {grid-gap: 8px;}
+
     .event {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
       }
     .tv_cf {
         grid-column: 1 / 2 ;
-        grid-row: 2 / 3;
+        grid-row: 3 / 4;
       }
     .grand_open {
         grid-column: 1 / 2;
@@ -1316,7 +1357,7 @@ p.title_sub {
     }
     .new_product {
         grid-column: 1 / 2;
-        grid-row: 3 / 4;
+        grid-row: 2 / 3;
     }
 
 
