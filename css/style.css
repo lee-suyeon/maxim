@@ -56,8 +56,15 @@ p.title_sub {
     margin: 1em 0 2.7em;
     position: relative;
 }
+
+::selection{
+    background: #e94d50;
+    color: #ffffff;
+}
 /* 로우 영역 */
 .row {padding: 0 28px;}
+
+
 
 
 /* 헤더 영역 */
@@ -505,13 +512,12 @@ p.title_sub {
     border-bottom: 3px solid #ccc;
     padding: 1.2em 0.5em;
     margin-left: -1px;
+    transition: 0.3s;
 }
 .product_tab li.on a {
     border-bottom: 3px solid #e94d50;
     color: #e94d50;
 }
-
-
 .product_contents {
     width: 100%;
     height: 550px;
@@ -531,10 +537,15 @@ p.title_sub {
     position: relative;
 }
 .product_desc .product_infor {
+    height: 100%;
+    position: relative;
+}
+.product_desc .product_infor li {
     width: 288px;
     position: absolute;
     top: 50%; right: 12%;
     transform: translateY(-50%);
+    transition: 0.3s;
 }
 .product_desc .product_infor em {
     display: block;
@@ -637,8 +648,8 @@ p.title_sub {
     margin-top: 1.5em;
 }
 
-.product_slide .slider_nav .prev,
-.product_slide .slider_nav .next {
+.product_slide .slideshow_nav .prev,
+.product_slide .slideshow_nav .next {
     position: absolute;
     width: 35px;
     height: 50px;
@@ -647,20 +658,19 @@ p.title_sub {
     transform: translateY(-50%);
     z-index: 30;
 }
-.product_slide .slider_nav button {
+.product_slide .slideshow_nav button {
     width: 10px;
     height: 18px;
     background: url(../img/prev3.png) no-repeat center center /cover;
     margin-top: 15px;
 }
-.product_slide .slider_nav .prev {
+.product_slide .slideshow_nav .prev {
     left: 0;
-    opacity: 0.5;
 }
-.product_slide .slider_nav .next {
+.product_slide .slideshow_nav .next {
     right: 0;
 }
-.product_slide .slider_nav .next button {
+.product_slide .slideshow_nav .next button {
     background: url(../img/next3.png) no-repeat center center /cover;
 }
 

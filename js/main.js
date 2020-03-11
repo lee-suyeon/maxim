@@ -89,7 +89,153 @@ $(function () {
             };
         });
 
+    // product tab-menu 
 
+        var $tabAnchor = $(".product_tab li"),
+            $productInfor = $(".product_infor ul li"),
+            $productList = $(".product_list");
+
+        var $productSlide = $(".product_slide");
+        var $next= $(".slideshow_nav .next");
+        var $prev= $(".slideshow_nav .prev");
+
+        productCount = $productList.length;
+
+            $tabAnchor.each( function (index, item) {
+                $(this).attr("data-index", index);
+            });
+   
+            var slideIndex = 0;
+            var curIndex = 0;
+
+            
+            $tabAnchor.click(function (e) {
+                e.preventDefault();
+
+                $tabAnchor.removeClass("on");
+                $(this).addClass("on");
+
+                $productInfor.hide();
+                $productList.hide();
+                $productList.css({"left":0});
+
+
+                slideIndex = $(this).attr("data-index");
+                $productInfor.eq(slideIndex).show();
+                $productList.eq(slideIndex).show();
+
+                
+                if(!curIndex == 0){
+                    curIndex = 0;
+                }
+                
+                console.log("tab curIndex = " + curIndex);
+                removeNav();
+            });
+
+        $tabAnchor.eq(0).trigger("click");
+
+        /*
+        $next.click(function () {
+            var productCount = $productList.eq(slideIndex).children().length;
+            $productList.eq(slideIndex).animate({left: -33.333 * (curIndex + 1) + "%"});
+            curIndex++;
+            console.log(curIndex);
+            if(curIndex == productCount - 3){
+                $(this).css({display:"none"});
+            }
+        });
+
+        $prev.click(function () {
+            $productList.eq(slideIndex).animate({left: -33.333 * (curIndex - 1) + "%"});
+            curIndex--;
+            console.log(curIndex);
+            
+        });
+        */
+
+        var moveWidth = $productList.outerWidth() / 6;
+        console.log(moveWidth);
+
+
+        function moveToSlide (slideIndex, index) {
+            $productList.eq(slideIndex).animate({left: -1 * moveWidth * index + "px"});
+            curIndex = index;
+            console.log("index = " + index)
+            removeNav();
+        };
+
+
+        $(".slideshow_nav").find("div").click(function (e) {
+            e.preventDefault();
+
+            if($(this).hasClass("prev")){
+                moveToSlide(slideIndex, curIndex - 1);
+                
+                console.log("prev curIndex = " + curIndex);
+            }else{
+                moveToSlide(slideIndex, curIndex + 1);
+                console.log("next curIndex = " + curIndex);
+            }
+        });
+
+        var productCount = $productList.eq(slideIndex).children().length;
+
+        function removeNav () {
+            
+            if(curIndex == 0){
+                $prev.css({display:"none"});
+            }else {
+                $prev.css({display:"block"});
+            };
+
+            if(curIndex == productCount - 3){
+                $next.css({display:"none"});
+            }else {
+                $next.css({display:"block"});
+            };
+        };
+
+
+
+
+
+        /*function moveToSlide(i){
+            $productList.eq(slideIndex).animate({left: -33.333 * i + "%"});
+            curIndex = i;
+            removeNav();
+        }
+
+        slideNav.find("div").click(function (e) {
+            e.preventDefault();
+
+            if($(this).hasClass("prev")){
+                moveToSlide(curIndex - 1);
+            }else{
+                moveToSlide(curIndex + 1);
+                console.log("curIndex = " + curIndex);
+            }
+        });
+
+        function removeNav () {
+            var navPrev = slideNav.find(".prev"),
+                 navNext = slideNav.find(".next");
+
+            if(curIndex == 0){
+                navPrev.css({display:"none"});
+            }else {
+                navPrev.css({display:"block"});
+            };
+
+            if(curIndex == productCount - 3){
+                navNext.css({display:"none"});
+            }else {
+                navNext.css({display:"block"});
+            };
+        };
+
+        removeNav();
+        */
     // news hover
     var $newsContents = $(".news .news_contents > div");
 
