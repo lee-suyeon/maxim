@@ -20,26 +20,14 @@
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icon/favicon_144.png" />
         <link rel="apple-touch-icon-precomposed" sizes="192x192" href="icon/favicon_192.png" />
 
-        <!-- 페이스북 메타 태그
-        <meta property="og:title" content="메가박스 사이트 만들기" />
-        <meta property="og:url" content="https://github.com/webstoryboy/megabox2019" />
-        <meta property="og:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg" />
-        <meta property="og:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다." />
-    
-        트위터 메타 태그
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="메가박스 사이트 만들기">
-        <meta name="twitter:url" content="https://github.com/webstoryboy/megabox2019/">
-        <meta name="twitter:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg">
-        <meta name="twitter:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
-        -->
-
         <!-- 웹 폰트 -->
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,200,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800&display=swap" rel="stylesheet">
         
+        <!-- 스크립트 -->
         <script src="https://code.jquery.com/jquery.min.js"></script>
         <script src="js/main.js"></script>
+        
         <!-- HTLM5shiv ie6~8 -->
         <!--[if lt IE 9]> 
         <script src="assets/js/html5shiv.min.js"></script>
@@ -48,15 +36,17 @@
         </script>
         <![endif]-->
 
+        
     </head>
     <body>
-        <!-- 스킵 메뉴
-            <div id="skip">
-                <a rel="bookmark" href="#movie">최신 영화 소식</a>
-                <a rel="bookmark" href="#event">새로운 이벤트</a>
-                <a rel="bookmark" href="#new">새로운 영화</a>
-            </div>
-        스킵 메뉴 -->
+        <!-- 스킵 메뉴 -->
+        <div id="skip">
+            <a rel="bookmark" href="#about">ABOUT</a>
+            <a rel="bookmark" href="#product">PRODUCT</a>
+            <a rel="bookmark" href="#news">NEWS</a>
+            <a rel="bookmark" href="#customer">CUSTOMER</a>
+        </div>
+        <!-- //스킵 메뉴 -->
 
 
         <!-- 헤더영역 -->
@@ -65,14 +55,14 @@
                     <div class="row">
                         <div class="header">
                             <h1>
-                                <a href="#">
-                                    <img src="img/logo.png" alt="Maxim">
-                                </a>
+                                <a href="#"><img src="img/logo.png" srcset="img/logo@2.png" alt="Maxim"></a>
                             </h1>
+                            <!-- 모바일 메뉴 -->
                             <nav id="mNav">
                                 <h2 class="ir_so">맥심커피 전체메뉴</h2>
                                 <a href="#" class="ham"><span></span></a>
                             </nav>
+                            <!-- //모바일 메뉴 -->
                             <nav class="nav">
                                 <ul class="gnb">
                                     <li><a href="#">ABOUT</a>
@@ -122,15 +112,15 @@
             <h2 class="ir_so">신상품 배너</h2>
             <div class="slideshow">
                 <div class="slideshow_slides">
-                    <div class="banner1" style="display: block;">
+                    <div class="banner1">
                         <div class="container">
                             <div class="row">
-                                <h2><img src="img/logo_fff.png" alt="maximlogo"><em>커피라는 행복, 맥심</em></h2>
+                                <h2><img src="img/logo_fff.png" srcset="img/logo_fff@2.png" alt="maximlogo"><em>커피라는 행복, 맥심</em></h2>
                                 <p>세상의 모든 순간이 더 행복해지도록 맥심이 더 좋아졌습니다. </p>
                             </div>  <!-- //row -->
                         </div>  <!-- //container -->
                     </div> <!-- //banner1 -->
-                    <div class="banner2" style="display: block;">
+                    <div class="banner2">
                         <div class="container">
                             <div class="row">
                                 <h2><span class="six"></span>
@@ -143,12 +133,12 @@
                             </div>  <!-- //row -->
                         </div>  <!-- //container -->
                     </div> <!-- //banner2 -->
-                    <div class="banner3" style="display: block">
+                    <div class="banner3">
                         <div class="container">
                             <div class="row">
                                 <h2>
                                     <em>세상이 기다렸던<br>스윗한 콜라보</em>
-                                    <span class="kanu"></span>
+                                    <span class="kanu_logo"></span>
                                     <strong>티라미수 라떼</strong>
                                 </h2>
                             </div>  <!-- //row -->
@@ -174,8 +164,10 @@
             <div class="container">
                 <div class="row">
                     <div class="about">
-                        <h3 class="title">ABOUT</h3>
-                        <p class="title_sub">"맥심은 언제 어디서나 믿고<br> 즐길 수 있는 좋은 커피 입니다." </p>
+                        <div class="title_wrap">
+                            <h2 class="title">ABOUT</h2>
+                            <p class="title_sub">"맥심은 언제 어디서나 믿고<br> 즐길 수 있는 좋은 커피 입니다." </p>
+                        </div>
                         <ul class="slogan">
                             <li>
                                 <span class="coffeebean"></span>
@@ -198,11 +190,10 @@
                                     노하우로 고품질의 커피 본연의 맛과 향을 즐길 수 있는 좋은 커피입니다.
                                     세상의 모든 순간이 더 행복해지도록 맥심이 좋은 커피로 다가갑니다.</p>
                             </li>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                        </ul>   <!--//slogan-->
+                    </div>  <!--//about-->
+                </div>  <!--//row-->
+            </div> <!--//container-->
         </section>
         <!-- //ABOUT-->
 
@@ -221,9 +212,9 @@
                             <li>케맥스</li>
                         </ul>
                         <a herf="#">동영상 보러가기 >></a>
-                    </div>
-                </div>
-            </div>
+                    </div>  <!-- //guide -->
+                </div>  <!-- //row -->
+            </div>  <!-- //container -->
         </section>
         <!-- //GUIDE -->
 
@@ -232,8 +223,10 @@
             <div class="container">
                 <div class="row">
                     <div class="product">
-                        <h3 class="title">PRODUCT</h3>
-                        <p class="title_sub">맥심의 인기 제품들을 만나보세요. </p>
+                        <div class="title_wrap">
+                            <h2 class="title">PRODUCT</h2>
+                            <p class="title_sub">맥심의 인기 제품들을 만나보세요. </p>
+                        </div>
                         <div class="product_tab">
                             <ul>
                                 <li class="on"><a href="#">KANU</a></li>
@@ -241,32 +234,32 @@
                                 <li><a href="#">T.O.P</a></li>
                                 <li><a href="#">시그니처 블렌드</a></li>
                             </ul>
-                        </div>
+                        </div> <!-- //product_tab -->
                         <div class="product_contents">
-                            <div class="product_desc kanu">
+                            <div class="product_desc">
                                 <div class="product_infor">
                                     <ul>
                                         <li>
-                                            <em>세상에서 가장 작은 카페<span class="kanu_logo"></span></em>
+                                            <h4>세상에서 가장 작은 카페<span class="kanu_logo"></span></h4>
                                             <p>맥심 카누는 에스프레소 추출로 얻어 낸 고품질 커피 파우더에 직접 갈아 넣은 원두를 
                                                 맥심이 찾아낸 최적의 비율로 블렌딩하여 더욱 조화롭고 깊은 아메리카노 본연의 맛과 향을 제공합니다.</p>
                                             <a href="#" class="website">사이트 바로가기 ></a>
                                         </li>
                                         <li>
-                                            <em>진정한 커피의 부드러움<span class="mochagold_logo"></span></em>
+                                            <h4>진정한 커피의 부드러움<span class="mochagold_logo"></span></h4>
                                             <p>맥심 모카골드는 동서식품만의 노하우인 독자적인 향 회수 기술(RAP)과 순하고 부드러운 고급 마일드 커피원두로 커피 본연의 맛과 향을 살렸습니다.
                                                 맥심 모카골드의 은은하고 부드러운 원두의 맛과 향으로 일상 속의 여유가 주는 행복과 편안함을 느껴보세요. </p>
                                             <a href="#" class="website">사이트 바로가기 ></a>
                                         </li>
                                         <li>
-                                            <em>열정의 에스프레소<span class="top_logo"></span></em>
+                                            <h4>열정의 에스프레소<span class="top_logo"></span></h4>
                                             <p>맥심 티오피는 최고급 원두인 100% 아라비카 원두를 동서식품만의 
                                                 노하우인 가압추출방식으로 뽑아낸 간편하게 즐기는 진한 에스프레소 커피 입니다.
                                                 프리미엄 커피가 주는 커피본연의 맛과 향으로 행복하고 특별한 순간을 경험해 보세요.</p>
                                             <a href="#" class="website">사이트 바로가기 ></a>
                                         </li>
                                         <li>
-                                            <em>Find your coffee<span class="sig_logo"></span></em>
+                                            <h4>Find your coffee<span class="sig_logo"></span></h4>
                                             <p>50년간, 30여 개국 100여 종의 원두를 다루며 연인원 1만 명의 
                                                 소비자들을 대상으로 99가지 조합을 찾는 과정에서,
                                                 어쩌면 정말로 가능할 수도 있겠다는 자신감이 생겼습니다. 
@@ -276,7 +269,7 @@
                                             <a href="#" class="website">사이트 바로가기 ></a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div>  <!-- //product_infor-->
                             </div> <!-- //product_desc-->
                             <div class="product_slide">
                                 <ul class="product_list kanu">
@@ -458,40 +451,30 @@
             <div class="container">
                 <div class="row">
                     <div class="news">
-                        <h3 class="title">NEWS</h3>
-                        <p class="title_sub">맥심의 새로운 광고와 다양한 소식을 만나보세요. </p>
+                        <div class="title_wrap">
+                            <h2 class="title">NEWS</h2>
+                            <p class="title_sub">맥심의 새로운 광고와 다양한 소식을 만나보세요. </p>
+                        </div>
                         <div class="news_contents">
                             <div class="event">
                                 <a href="#">
                                     <h4 class="contents_title">EVENT</h4>
-                                    <img src="img/kanuevent.jpg" alt="카누 이벤트">
+                                    <img src="img/kanuevent.jpg" srcset="img/kanuevent@2.jpg" alt="카누 이벤트">
                                     <div class="overlay">
                                         <button class="more"><span>자세히 보기</span></button>
                                     </div>
                                 </a>
                             </div>
                             <div class="tv_cf">
-                                    <h4 class="contents_title">TV CF</h4>
-                                    <div class="videowrapper">
-                                        <iframe width="789" height="420" src="https://www.youtube.com/embed/3zoIcw4-GKE?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <!-- <img src="img/coffeeisgold.jpg" alt="모카 골드"> -->
-                                    <!-- <div class="overlay">
-                                        <div class="play">
-                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                viewBox="0 0 120 120" style="enable-background:new 0 0 120 120;" xml:space="preserve">
-                                                <circle class="st0" cx="60" cy="60.4" r="56"/>
-                                                <path class="st1" d="M81,65.4c4.8-2.8,4.8-7.2,0-10L53.5,39.6c-4.8-2.8-8.7-0.5-8.7,5v31.7c0,5.5,3.9,7.8,8.7,5L81,65.4z"/>
-                                            </svg>
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/3zoIcw4-GKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
-                                    </!--> 
-
+                                <h4 class="contents_title">TV CF</h4>
+                                <div class="videowrapper">
+                                    <iframe width="789" height="420" src="https://www.youtube.com/embed/3zoIcw4-GKE?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
                             </div>
                             <div class="grand_open">
                                 <a href="#">
                                     <h4 class="contents_title">NEWS</h4>
-                                    <img src="img/maximplant.jpg" alt="그랜드 오픈">
+                                    <img src="img/maximplant.jpg" srcset="img/maximplant@2.jpg" alt="그랜드 오픈">
                                     <div class="overlay">
                                         <button class="more"><span>자세히 보기</span></button>
                                     </div>
@@ -500,7 +483,7 @@
                             <div class="new_product">
                                 <a href="#">
                                     <h4 class="contents_title">NEW PRODUCT</h4>
-                                    <img src="img/newproduct.jpg" alt="카누 바닐라 라떼">
+                                    <img src="img/newproduct.jpg" srcset="img/newproduct@2.jpg" alt="카누 바닐라 라떼">
                                     <div class="overlay">
                                         <button class="more"><span>자세히 보기</span></button>
                                     </div>
@@ -518,13 +501,15 @@
             <div class="container">
                 <div class="row">
                     <div class="customers">
-                        <h3 class="title">CUSTOMERS</h3>
-                        <p class="title_sub">고객님과 소통하기 위한 맥심의 공간입니다.</p>
+                        <div class="title_wrap">
+                            <h2 class="title">CUSTOMERS</h2>
+                            <p class="title_sub">고객님과 소통하기 위한 맥심의 공간입니다.</p>
+                        </div>
                         <ul class="service">
                             <li>
                                 <a href="#">
                                     <span class="img_svg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 24 24" width="50"><path d="M0 0h24v24H0V0z" fill="none"/><path style="fill:#e94d50;" d="M9 13.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zM9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm7.04 6.81c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"/></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 24 24" width="50"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 13.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zM9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm7.04 6.81c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"/></svg>
                                     </span>
                                     <strong>커뮤니티</strong>
                                     <p>커피향 가득한 일상의 즐거움을 이야기하는 공간입니다.</p>
@@ -533,7 +518,7 @@
                             <li>
                                 <a href="#">
                                     <span class="img_svg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 24 24" width="50"><path d="M0 0h24v24H0V0z" fill="none"/><path style="fill:#e94d50;" d="M11 23.59v-3.6c-5.01-.26-9-4.42-9-9.49C2 5.26 6.26 1 11.5 1S21 5.26 21 10.5c0 4.95-3.44 9.93-8.57 12.4l-1.43.69zM11.5 3C7.36 3 4 6.36 4 10.5S7.36 18 11.5 18H13v2.3c3.64-2.3 6-6.08 6-9.8C19 6.36 15.64 3 11.5 3zm-1 11.5h2v2h-2zm2-1.5h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 24 24" width="50"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 23.59v-3.6c-5.01-.26-9-4.42-9-9.49C2 5.26 6.26 1 11.5 1S21 5.26 21 10.5c0 4.95-3.44 9.93-8.57 12.4l-1.43.69zM11.5 3C7.36 3 4 6.36 4 10.5S7.36 18 11.5 18H13v2.3c3.64-2.3 6-6.08 6-9.8C19 6.36 15.64 3 11.5 3zm-1 11.5h2v2h-2zm2-1.5h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg>
                                     </span>
                                     <strong>FAQ</strong>
                                     <p>맥심에 대해 많은 분들이 궁금해 하시는 내용입니다.</p>
@@ -542,7 +527,7 @@
                             <li>
                                 <a href="#">
                                     <span class="img_svg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="50" viewBox="0 0 24 24" width="50"><g><rect fill="none" height="24" width="24"/></g><g><g/><g><path style="fill:#e94d50;" d="M12,3c-0.46,0-0.93,0.04-1.4,0.14C7.84,3.67,5.64,5.9,5.12,8.66c-0.48,2.61,0.48,5.01,2.22,6.56 C7.77,15.6,8,16.13,8,16.69V19c0,1.1,0.9,2,2,2h0.28c0.35,0.6,0.98,1,1.72,1s1.38-0.4,1.72-1H14c1.1,0,2-0.9,2-2v-2.31 c0-0.55,0.22-1.09,0.64-1.46C18.09,13.95,19,12.08,19,10C19,6.13,15.87,3,12,3z M14,17h-4v-1h4V17z M10,19v-1h4v1H10z M15.31,13.74c-0.09,0.08-0.16,0.18-0.24,0.26H8.92c-0.08-0.09-0.15-0.19-0.24-0.27c-1.32-1.18-1.91-2.94-1.59-4.7 c0.36-1.94,1.96-3.55,3.89-3.93C11.32,5.03,11.66,5,12,5c2.76,0,5,2.24,5,5C17,11.43,16.39,12.79,15.31,13.74z"/></g></g></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="50" viewBox="0 0 24 24" width="50"><g><rect fill="none" height="24" width="24"/></g><g><g/><g><path d="M12,3c-0.46,0-0.93,0.04-1.4,0.14C7.84,3.67,5.64,5.9,5.12,8.66c-0.48,2.61,0.48,5.01,2.22,6.56 C7.77,15.6,8,16.13,8,16.69V19c0,1.1,0.9,2,2,2h0.28c0.35,0.6,0.98,1,1.72,1s1.38-0.4,1.72-1H14c1.1,0,2-0.9,2-2v-2.31 c0-0.55,0.22-1.09,0.64-1.46C18.09,13.95,19,12.08,19,10C19,6.13,15.87,3,12,3z M14,17h-4v-1h4V17z M10,19v-1h4v1H10z M15.31,13.74c-0.09,0.08-0.16,0.18-0.24,0.26H8.92c-0.08-0.09-0.15-0.19-0.24-0.27c-1.32-1.18-1.91-2.94-1.59-4.7 c0.36-1.94,1.96-3.55,3.89-3.93C11.32,5.03,11.66,5,12,5c2.76,0,5,2.24,5,5C17,11.43,16.39,12.79,15.31,13.74z"/></g></g></svg>
                                     </span>
                                     <strong>제품 아이디어</strong>
                                     <p>맥심은 고객님 단 한분의 의견도 소중히 여깁니다.</p>
@@ -551,16 +536,16 @@
                             <li>
                                 <a href="#">
                                     <span class="img_svg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 24 24" width="50"><path d="M0 0h24v24H0V0z" fill="none"/><path style="fill:#e94d50;" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 2.5c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5z"/></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 24 24" width="50"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 2.5c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5z"/></svg>
                                     </span>
                                     <strong>불편사항</strong>
                                     <p>고객님의 불편사항을 신속히 상담드리도록 하겠습니다.</p>
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                        </ul> <!-- //service -->
+                    </div>  <!-- //customers -->
+                </div>  <!-- //row -->
+            </div>  <!-- //container -->
         </section>
         <!-- //CUSTOMERS -->
 
@@ -595,9 +580,9 @@
                                 <p>Copyright 2017 Dongsuh Foods Corporation. All rights reserved.</p>
                             </address>
                         </div> <!-- //footer_info -->
-                    </div>
-                </div>
-            </div>
+                    </div>  <!-- //footer -->
+                </div>  <!-- //row -->
+            </div>  <!-- //container -->
         </footer>
         <!-- //FOOTER -->
 

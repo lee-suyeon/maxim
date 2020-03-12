@@ -1,262 +1,181 @@
 $(function () {
+
+    // title scroll event
+    var $contents = $("section");
+    var $slogan = $(".about .slogan");
+
+    $(window).scroll(function () {
+        var scrollTop = $(window).scrollTop();
+        $contents.each(function () {
+            if($(this).offset().top - 600 <= scrollTop){
+                $(this).find(".title_wrap").addClass("show");
+            };
+        });
+    });
+
+
     // #header_dropdown
-        var $navMenu = $(".nav .gnb > li");
+    var $navMenu = $(".nav .gnb > li");
+    $navMenu.hover(function () {
+        $(this).find(".dropdown").stop().slideDown(200);
+    }, function () {
+        $(this).find(".dropdown").stop().slideUp(200);
+    });
 
-        $navMenu.hover(function () {
-            $(this).find(".dropdown").stop().slideDown(200);
-        }, function () {
-            $(this).find(".dropdown").stop().slideUp(200);
-        });
 
-    
     //배너 슬라이드
-        var $container = $(".slideshow"),
-            slideGroup = $container.find(".slideshow_slides"),
-            banner = slideGroup.children("div");
+    var $slideshow = $(".slideshow"),
+        $slideGroup = $slideshow.find(".slideshow_slides"),
+        $banner = $slideGroup.children("div"),
+        bannerCount = $banner.length;
 
-        var pagination = $container.find(".current"),
+    var $pagination = $slideshow.find(".current"),
+         $slideNav = $slideshow.find(".slideshow_nav");
 
-            nav = $container.find(".slideshow_nav"),
-            bannerCount = banner.length;
+    var currentIndex = 0;   
+    var timer;
 
-
-        var currentIndex = 0;   
-        var timer;
-
-        //슬라이드 이동 함수
-        function goToSlide(index){
-            barWidth = pagination.outerWidth();
-            slideGroup.stop().animate({left: -100 * index + "%"});
-            pagination.stop().animate({left: barWidth * index + "px"});
-            currentIndex = index;
-            updateNav();
-        };
-
-        nav.find("button").click(function (e) {
-            e.preventDefault();
-            if($(this).hasClass("prev")){
-                goToSlide(currentIndex - 1);
-            }else{
-                goToSlide(currentIndex + 1);
-            }
-        });
-
-        function updateNav () {
-            var navPrev = nav.find(".prev"),
-                 navNext = nav.find(".next");
-
-            if(currentIndex == 0){
-                navPrev.css({display:"none"});
-            }else {
-                navPrev.css({display:"block"});
-            };
-
-            if(currentIndex == bannerCount - 1){
-                navNext.css({display:"none"});
-            }else {
-                navNext.css({display:"block"});
-            };
-        };
-
+    function goToSlide(index){
+        barWidth = $pagination.outerWidth();
+        $slideGroup.stop().animate({left: -100 * index + "%"});
+        $pagination.stop().animate({left: barWidth * index + "px"});
+        currentIndex = index;
         updateNav();
+    };
 
+    $slideNav.find("button").click(function (e) {
+        e.preventDefault();
+        if($(this).hasClass("prev")){
+            goToSlide(currentIndex - 1);
+        }else{
+            goToSlide(currentIndex + 1);
+        }
+    });
 
-        function nextSlide () {
-            var nextIndex = (currentIndex + 1) % bannerCount;
-            goToSlide(nextIndex);
+    function updateNav () {
+        var $navPrev = $slideNav.find(".prev"),
+             $navNext = $slideNav.find(".next");
+        if(currentIndex == 0){
+            $navPrev.css({display:"none"});
+        }else {
+            $navPrev.css({display:"block"});
         };
+        if(currentIndex == bannerCount - 1){
+            $navNext.css({display:"none"});
+        }else {
+            $navNext.css({display:"block"});
+        };
+    };
+    updateNav();
 
+    function nextSlide () {
+        var nextIndex = (currentIndex + 1) % bannerCount;
+        goToSlide(nextIndex);
+    };
+
+    timer = window.setInterval(nextSlide, 3000);
+    
+    $slideshow.hover(function () {
+        clearInterval(timer);
+    }, function () {
         timer = window.setInterval(nextSlide, 3000);
-        
-        $container.hover(function () {
-            clearInterval(timer);
-        }, function () {
-            timer = window.setInterval(nextSlide, 3000);
-        });
+    });
 
-        
     // ABOUT scroll evnet
-        // 스크롤의 위치가 일정 순간에 오면
-        // 슬로건 메뉴가 나타난다. 
         
-        var $slogan = $(".about .slogan");
-        var aboutPos = $(".about h3").offset().top;
 
-        $(window).scroll(function () {
-            var scrollTop = $(window).scrollTop();
-            if(scrollTop >= aboutPos - 500){
-                $slogan.addClass("show");
-            };
-        });
+
 
     // product tab-menu 
 
-        var $tabAnchor = $(".product_tab li"),
-            $productInfor = $(".product_infor ul li"),
-            $productList = $(".product_list");
+    var $tabAnchor = $(".product_tab li"),
+        $productInfor = $(".product_infor ul li"),
+        $productList = $(".product_list");
 
-        var $productSlide = $(".product_slide");
-        var $next= $(".slideshow_nav .next");
-        var $prev= $(".slideshow_nav .prev");
+    var $productSlide = $(".product_slide"),
+        $productNav = $(".slideshow_nav"),
+        $next = $productNav.find(".next"),
+        $prev = $productNav.find(".prev");
 
-        productCount = $productList.length;
+    var slideIndex = 0;
+    var listIndex = 0;
 
-            $tabAnchor.each( function (index, item) {
-                $(this).attr("data-index", index);
-            });
+    $tabAnchor.each( function (index) {
+        $(this).attr("data-index", index);
+    });
    
-            var slideIndex = 0;
-            var curIndex = 0;
-
-            
-            $tabAnchor.click(function (e) {
-                e.preventDefault();
-
-                $tabAnchor.removeClass("on");
-                $(this).addClass("on");
-
-                $productInfor.hide();
-                $productList.hide();
-                $productList.css({"left":0});
-
-
-                slideIndex = $(this).attr("data-index");
-                $productInfor.eq(slideIndex).show();
-                $productList.eq(slideIndex).show();
-
-                
-                if(!curIndex == 0){
-                    curIndex = 0;
-                }
-                
-                console.log("tab curIndex = " + curIndex);
-                removeNav();
-            });
-
-        $tabAnchor.eq(0).trigger("click");
-
-        /*
-        $next.click(function () {
-            var productCount = $productList.eq(slideIndex).children().length;
-            $productList.eq(slideIndex).animate({left: -33.333 * (curIndex + 1) + "%"});
-            curIndex++;
-            console.log(curIndex);
-            if(curIndex == productCount - 3){
-                $(this).css({display:"none"});
-            }
-        });
-
-        $prev.click(function () {
-            $productList.eq(slideIndex).animate({left: -33.333 * (curIndex - 1) + "%"});
-            curIndex--;
-            console.log(curIndex);
-            
-        });
-        */
-
-        var moveWidth = $productList.outerWidth() / 6;
-        console.log(moveWidth);
-
-
-        function moveToSlide (slideIndex, index) {
-            $productList.eq(slideIndex).animate({left: -1 * moveWidth * index + "px"});
-            curIndex = index;
-            console.log("index = " + index)
-            removeNav();
-        };
-
-
-        $(".slideshow_nav").find("div").click(function (e) {
-            e.preventDefault();
-
-            if($(this).hasClass("prev")){
-                moveToSlide(slideIndex, curIndex - 1);
-                
-                console.log("prev curIndex = " + curIndex);
-            }else{
-                moveToSlide(slideIndex, curIndex + 1);
-                console.log("next curIndex = " + curIndex);
-            }
-        });
-
-        var productCount = $productList.eq(slideIndex).children().length;
-
-        function removeNav () {
-            
-            if(curIndex == 0){
-                $prev.css({display:"none"});
-            }else {
-                $prev.css({display:"block"});
-            };
-
-            if(curIndex == productCount - 3){
-                $next.css({display:"none"});
-            }else {
-                $next.css({display:"block"});
-            };
-        };
-
-
-
-
-
-        /*function moveToSlide(i){
-            $productList.eq(slideIndex).animate({left: -33.333 * i + "%"});
-            curIndex = i;
-            removeNav();
-        }
-
-        slideNav.find("div").click(function (e) {
-            e.preventDefault();
-
-            if($(this).hasClass("prev")){
-                moveToSlide(curIndex - 1);
-            }else{
-                moveToSlide(curIndex + 1);
-                console.log("curIndex = " + curIndex);
-            }
-        });
-
-        function removeNav () {
-            var navPrev = slideNav.find(".prev"),
-                 navNext = slideNav.find(".next");
-
-            if(curIndex == 0){
-                navPrev.css({display:"none"});
-            }else {
-                navPrev.css({display:"block"});
-            };
-
-            if(curIndex == productCount - 3){
-                navNext.css({display:"none"});
-            }else {
-                navNext.css({display:"block"});
-            };
-        };
+    $tabAnchor.click(function (e) {
+        e.preventDefault();
+        
+        $tabAnchor.removeClass("on");
+        $(this).addClass("on");
+    
+        $productInfor.hide();
+        $productList.hide();
+        $productList.css({"left":0});
+    
+        slideIndex = $(this).attr("data-index");
+        $productInfor.eq(slideIndex).show();
+        $productList.eq(slideIndex).show();
+        
+        if(!listIndex == 0){listIndex = 0;}
 
         removeNav();
-        */
-    // news hover
-    var $newsContents = $(".news .news_contents > div");
+    });
 
-   $newsContents.hover(function () {
-       $(this).find(".contents_title").css({
-            "background":"#e94d50",
-            "color":"#fff"});
-       $(this).find(".overlay").css({"display":"block"});
-       $(this).find("img").css({"transform":"scale(1.05)"});
-   },function () {
-        $(this).find(".contents_title").css({
-            "background":"none",
-            "color":"#e94d50"});
-        $(this).find(".overlay").css({"display":"none"});
-        $(this).find("img").css({"transform":"scale(1)"});
-   });
+    $tabAnchor.eq(0).trigger("click");
+
+    var slideWidth = $productList.outerWidth() / 6;
+
+    function moveToSlide (slideIndex, index) {
+        $productList.eq(slideIndex).animate({left: -1 * slideWidth * index + "px"});
+        listIndex = index;
+        removeNav();
+    };
+
+    $productNav.find("div").click(function (e) {
+        e.preventDefault();
+        if($(this).hasClass("prev")){
+            moveToSlide(slideIndex, listIndex - 1);
+        }else{
+            moveToSlide(slideIndex, listIndex + 1);
+        }
+    });
+
+    function removeNav () {
+        var productCount = $productList.eq(slideIndex).children().length;
+
+        if(listIndex == 0){
+            $prev.css({display:"none"});
+        }else {
+            $prev.css({display:"block"});
+        };
+        if(listIndex == productCount - 3){
+            $next.css({display:"none"});
+        }else {
+            $next.css({display:"block"});
+        };
+    };
+    removeNav();
+
+        
+    // news hover
+    var $newsContents = $(".news_contents > div");
+
+    $newsContents.hover(function () {
+        $(this).find(".contents_title").addClass("active");
+        $(this).find(".overlay").addClass("active");
+        $(this).find("img").addClass("active");
+    },function () {
+            $(this).find(".contents_title").removeClass("active");
+            $(this).find(".overlay").removeClass("active");
+            $(this).find("img").removeClass("active");
+    });
 
 
    // notice rolling
-   var $container = $(".notice_rolling"),
-        rolling = $container.find(".rolling");
+   var $notice = $(".notice_rolling"),
+        rolling = $notice.find(".rolling");
 
     var rollingTimer;
 
@@ -267,11 +186,14 @@ $(function () {
 
         window.setTimeout(function () {
             rolling.removeAttr("style");
-        }, 400);
-        
+            rolling.append(rolling.children().first());
+        }, 400); 
     }
 
-console.log(rolling.children().first());
-
+    $notice.hover(function () {
+        clearInterval(rollingTimer);
+    }, function() {
+        rollingTimer = window.setInterval(doRolling, 2000);
+    });
 
 });
