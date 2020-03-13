@@ -2,7 +2,6 @@ $(function () {
 
     // title scroll event
     var $contents = $("section");
-    var $slogan = $(".about .slogan");
 
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
@@ -55,6 +54,7 @@ $(function () {
     function updateNav () {
         var $navPrev = $slideNav.find(".prev"),
              $navNext = $slideNav.find(".next");
+        var w =$(window).width();
         if(currentIndex == 0){
             $navPrev.css({display:"none"});
         }else {
@@ -65,6 +65,10 @@ $(function () {
         }else {
             $navNext.css({display:"block"});
         };
+
+        if(w <= 600){
+            $slideNav.css({display:"none"});
+        }
     };
     updateNav();
 
@@ -81,24 +85,18 @@ $(function () {
         timer = window.setInterval(nextSlide, 3000);
     });
 
-    // ABOUT scroll evnet
-        
-
-
-
     // product tab-menu 
 
     var $tabAnchor = $(".product_tab li"),
         $productInfor = $(".product_infor ul li"),
         $productList = $(".product_list");
 
-    var $productSlide = $(".product_slide"),
-        $productNav = $(".slideshow_nav"),
+    var $productNav = $(".slideshow_nav"),
         $next = $productNav.find(".next"),
         $prev = $productNav.find(".prev");
 
-    var slideIndex = 0;
-    var listIndex = 0;
+    var slideIndex = 0,
+        listIndex = 0;
 
     $tabAnchor.each( function (index) {
         $(this).attr("data-index", index);
@@ -126,6 +124,14 @@ $(function () {
     $tabAnchor.eq(0).trigger("click");
 
     var slideWidth = $productList.outerWidth() / 6;
+   
+    $(window).resize(function () {
+        slideWidth = $productList.outerWidth() / 6;
+        $productList.css({left:0});
+        listIndex = 0;
+        removeNav();
+    });
+    
 
     function moveToSlide (slideIndex, index) {
         $productList.eq(slideIndex).animate({left: -1 * slideWidth * index + "px"});
@@ -140,25 +146,40 @@ $(function () {
         }else{
             moveToSlide(slideIndex, listIndex + 1);
         }
+        
     });
 
     function removeNav () {
         var productCount = $productList.eq(slideIndex).children().length;
-
-        if(listIndex == 0){
+        var w =$(window).width();
+        if(w <= 480){
+            if(listIndex == productCount - 1){
+                $next.css({display:"none"});
+            } else {
+                $next.css({display:"block"});            }
+            };
+        if(w <= 768 && w > 480){
+            if(listIndex == productCount - 2){
+                $next.css({display:"none"});
+            } else {
+                $next.css({display:"block"});
+            };
+        } if(w > 768) {
+            if(listIndex == productCount - 3){
+                $next.css({display:"none"});
+            } else {
+                $next.css({display:"block"});
+            };
+        }
+        if (listIndex == 0){
             $prev.css({display:"none"});
-        }else {
+        } else {
             $prev.css({display:"block"});
-        };
-        if(listIndex == productCount - 3){
-            $next.css({display:"none"});
-        }else {
-            $next.css({display:"block"});
-        };
+        }
     };
     removeNav();
-
-        
+    
+    
     // news hover
     var $newsContents = $(".news_contents > div");
 
@@ -167,9 +188,9 @@ $(function () {
         $(this).find(".overlay").addClass("active");
         $(this).find("img").addClass("active");
     },function () {
-            $(this).find(".contents_title").removeClass("active");
-            $(this).find(".overlay").removeClass("active");
-            $(this).find("img").removeClass("active");
+        $(this).find(".contents_title").removeClass("active");
+        $(this).find(".overlay").removeClass("active");
+        $(this).find("img").removeClass("active");
     });
 
 
@@ -188,12 +209,15 @@ $(function () {
             rolling.removeAttr("style");
             rolling.append(rolling.children().first());
         }, 400); 
-    }
+    };
 
     $notice.hover(function () {
         clearInterval(rollingTimer);
     }, function() {
         rollingTimer = window.setInterval(doRolling, 2000);
     });
+
+
+
 
 });

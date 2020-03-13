@@ -804,11 +804,15 @@ p.title_sub {
 }
 .footer .notice_rolling {
     overflow: hidden;
+    position: relative;
     float: left;
     height: 2em;
     width: 80%;
 }
-.footer .notice ul {position: relative;}
+.footer .notice .rolling {
+    position: absolute;
+    top: 0; left: 0;
+}
 .footer .notice li {
     height: 2em;
     line-height: 2em;
@@ -866,6 +870,9 @@ p.title_sub {
     line-height: 1.5;
     margin-right: 1.5em;
 }
+.footer .footer_info address {
+    margin-bottom: 20px;
+}
 .footer .footer_info address p {
     font-size: 14px;
     color: #fff;
@@ -878,13 +885,23 @@ p.title_sub {
 
 @media (max-width: 1290px) {
     .container {width: 100%;}
+    
+    .product_contents {
+        background-image: none;
+        background: #f6f2ec;
+    }
     .product_slide .product_list {width: 300%;}
+
+    .product_contents .product_desc {display: none;}
+    .product_contents .product_slide {width: 100%;}
+    .product_slide .product_list {width: 200%;}
 }
 @media (max-width: 1024px) {
     .slideshow .banner3 h2 {right: 12%;}
 
     .product_tab ul {width: 80%;}
-    .product_slide .product_list {width: 300%;}
+
+
 }
 @media (max-width: 960px) {
     body {background-color: #f6f2ec;}
@@ -939,10 +956,7 @@ p.title_sub {
     }
     .product {padding-top: 100px;}
     .product h3.title {margin-bottom: 0;}
-    .product_contents {
-        background-image: none;
-        background: #f6f2ec;
-    }
+
     .product_tab ul {
         width: 100%;
         margin: 0 0 50px;
@@ -960,14 +974,12 @@ p.title_sub {
         background-color: #e94d50;
         position: absolute;
         bottom: 0; left: 0;
-    }
+    } 
     .product_contents,
     .product_contents .product_slide,
     .product_slide .product_list li {height: 450px;}
 
-    .product_contents .product_desc {display: none;}
-    .product_contents .product_slide {width: 100%;}
-    .product_slide .product_list {width: 200%;}
+
     .product_slide .product_list .product_name em {font-size: 16px;}
     .product_slide .top .product_name img {width: 95px;}
 
