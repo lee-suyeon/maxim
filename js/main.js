@@ -6,7 +6,7 @@ $(function () {
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
         $contents.each(function () {
-            if($(this).offset().top - 600 <= scrollTop){
+            if($(this).offset().top - 500 <= scrollTop){
                 $(this).find(".title_wrap").addClass("show");
             };
         });
