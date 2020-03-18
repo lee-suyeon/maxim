@@ -7,7 +7,7 @@ $(function () {
         var scrollTop = $(window).scrollTop();
         $contents.each(function () {
             if($(this).offset().top - 500 <= scrollTop){
-                $(this).find(".title_wrap").addClass("show");
+                $(this).find(".hide").addClass("active");
             };
         });
     });
