@@ -12,73 +12,69 @@ $(function () {
         });
     });
 
-    
-
-
-
-
+ 
     //배너 슬라이드
-    // var $slideshow = $(".slideshow"),
-    //     $slideGroup = $slideshow.find(".slideshow_slides"),
-    //     $banner = $slideGroup.children("div"),
-    //     bannerCount = $banner.length;
+    var $slideshow = $(".slideshow"),
+        $slideGroup = $slideshow.find(".slideshow_slides"),
+        $banner = $slideGroup.children("div"),
+        bannerCount = $banner.length;
 
-    // var $pagination = $slideshow.find(".current"),
-    //      $slideNav = $slideshow.find(".slideshow_nav");
+    var $pagination = $slideshow.find(".current"),
+         $slideNav = $slideshow.find(".slideshow_nav");
 
-    // var currentIndex = 0;   
-    // var timer;
+    var currentIndex = 0;   
+    var timer;
 
-    // function goToSlide(index){
-    //     barWidth = $pagination.outerWidth();
-    //     $slideGroup.stop().animate({left: -100 * index + "%"});
-    //     $pagination.stop().animate({left: barWidth * index + "px"});
-    //     currentIndex = index;
-    //     updateNav();
-    // };
+    function goToSlide(index){
+        barWidth = $pagination.outerWidth();
+        $slideGroup.stop().animate({left: -100 * index + "%"});
+        $pagination.stop().animate({left: barWidth * index + "px"});
+        currentIndex = index;
+        updateNav();
+    };
 
-    // $slideNav.find("button").click(function (e) {
-    //     e.preventDefault();
-    //     if($(this).hasClass("prev")){
-    //         goToSlide(currentIndex - 1);
-    //     }else{
-    //         goToSlide(currentIndex + 1);
-    //     }
-    // });
+    $slideNav.find("button").click(function (e) {
+        e.preventDefault();
+        if($(this).hasClass("prev")){
+            goToSlide(currentIndex - 1);
+        }else{
+            goToSlide(currentIndex + 1);
+        }
+    });
 
-    // function updateNav () {
-    //     var $navPrev = $slideNav.find(".prev"),
-    //          $navNext = $slideNav.find(".next");
-    //     var w =$(window).width();
-    //     if(currentIndex == 0){
-    //         $navPrev.css({display:"none"});
-    //     }else {
-    //         $navPrev.css({display:"block"});
-    //     };
-    //     if(currentIndex == bannerCount - 1){
-    //         $navNext.css({display:"none"});
-    //     }else {
-    //         $navNext.css({display:"block"});
-    //     };
+    function updateNav () {
+        var $navPrev = $slideNav.find(".prev"),
+             $navNext = $slideNav.find(".next");
+        var w =$(window).width();
+        if(currentIndex == 0){
+            $navPrev.css({display:"none"});
+        }else {
+            $navPrev.css({display:"block"});
+        };
+        if(currentIndex == bannerCount - 1){
+            $navNext.css({display:"none"});
+        }else {
+            $navNext.css({display:"block"});
+        };
 
-    //     if(w <= 600){
-    //         $slideNav.css({display:"none"});
-    //     }
-    // };
-    // updateNav();
+        if(w <= 600){
+            $slideNav.css({display:"none"});
+        }
+    };
+    updateNav();
 
-    // function nextSlide () {
-    //     var nextIndex = (currentIndex + 1) % bannerCount;
-    //     goToSlide(nextIndex);
-    // };
+    function nextSlide () {
+        var nextIndex = (currentIndex + 1) % bannerCount;
+        goToSlide(nextIndex);
+    };
 
-    // timer = window.setInterval(nextSlide, 3000);
+    timer = window.setInterval(nextSlide, 3000);
     
-    // $slideshow.hover(function () {
-    //     clearInterval(timer);
-    // }, function () {
-    //     timer = window.setInterval(nextSlide, 3000);
-    // });
+    $slideshow.hover(function () {
+        clearInterval(timer);
+    }, function () {
+        timer = window.setInterval(nextSlide, 3000);
+    });
 
     // product tab-menu 
 
