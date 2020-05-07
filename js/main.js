@@ -1,10 +1,16 @@
 $(function () {
 
     // title scroll event
-    var $contents = $("section");
+    var $contents = $("section"),
+         $topBtn = $("#top");
 
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
+        if(scrollTop > 0){
+            $topBtn.css({right:0});
+        } else {
+            $topBtn.css({right:"-6rem"});
+        }
         $contents.each(function () {
             if($(this).offset().top - 500 <= scrollTop){
                 $(this).find(".hide").addClass("active");
@@ -12,12 +18,15 @@ $(function () {
         });
     });
 
+    $topBtn.click(function (e) {
+        e.preventDefault();
+        $("html,body").stop().animate({scrollTop : 0});
+    })
  
     //배너 슬라이드
     var $slideshow = $(".slideshow"),
         $slideGroup = $slideshow.find(".slideshow_slides"),
-        $banner = $slideGroup.children("div"),
-        bannerCount = $banner.length;
+        $banner = $slideGroup.children("div");
 
     var $pagination = $slideshow.find(".current"),
          $slideNav = $slideshow.find(".slideshow_nav");
@@ -25,56 +34,39 @@ $(function () {
     var currentIndex = 0;   
     var timer;
 
-    function goToSlide(index){
+    $slideGroup.children("div:gt(0)").hide();
+
+    timer = window.setInterval(fadeInSlide, 3000)    
+    
+    function fadeInSlide(){
+        next = (currentIndex + 1) % $banner.length;
+        $banner.eq(currentIndex).fadeOut();
+        $banner.eq(next).fadeIn();
+        currentIndex = next;
+        moveToPag();
+    }
+
+    function moveToPag () {
         barWidth = $pagination.outerWidth();
-        $slideGroup.stop().animate({left: -100 * index + "%"});
-        $pagination.stop().animate({left: barWidth * index + "px"});
-        currentIndex = index;
-        updateNav();
-    };
+        $pagination.css({left: barWidth * currentIndex + "px"});
+    }
 
     $slideNav.find("button").click(function (e) {
         e.preventDefault();
         if($(this).hasClass("prev")){
-            goToSlide(currentIndex - 1);
+            fadeInSlide(currentIndex - 1);
         }else{
-            goToSlide(currentIndex + 1);
+            fadeInSlide(currentIndex + 1);
         }
     });
-
-    function updateNav () {
-        var $navPrev = $slideNav.find(".prev"),
-             $navNext = $slideNav.find(".next");
-        var w =$(window).width();
-        if(currentIndex == 0){
-            $navPrev.css({display:"none"});
-        }else {
-            $navPrev.css({display:"block"});
-        };
-        if(currentIndex == bannerCount - 1){
-            $navNext.css({display:"none"});
-        }else {
-            $navNext.css({display:"block"});
-        };
-
-        if(w <= 600){
-            $slideNav.css({display:"none"});
-        }
-    };
-    updateNav();
-
-    function nextSlide () {
-        var nextIndex = (currentIndex + 1) % bannerCount;
-        goToSlide(nextIndex);
-    };
-
-    timer = window.setInterval(nextSlide, 3000);
     
     $slideshow.hover(function () {
         clearInterval(timer);
     }, function () {
-        timer = window.setInterval(nextSlide, 3000);
+        timer = window.setInterval(fadeInSlide, 3000);
     });
+
+
 
     // product tab-menu 
 
@@ -82,7 +74,7 @@ $(function () {
         $productInfor = $(".product_infor ul li"),
         $productList = $(".product_list");
 
-    var $productNav = $(".slideshow_nav"),
+    var $productNav = $(".product_nav"),
         $next = $productNav.find(".next"),
         $prev = $productNav.find(".prev");
 
@@ -123,7 +115,6 @@ $(function () {
         removeNav();
     });
     
-
     function moveToSlide (slideIndex, index) {
         $productList.eq(slideIndex).animate({left: -1 * slideWidth * index + "px"});
         listIndex = index;
@@ -172,40 +163,35 @@ $(function () {
     
     
     // news hover
-    // var $newsContents = $(".news_contents > div");
+    var $newsContents = $(".news_contents > div");
 
-    // $newsContents.hover(function () {
-    //     $(this).find(".contents_title").addClass("active");
-    //     $(this).find(".overlay").addClass("active");
-    //     $(this).find("img").addClass("active");
-    // },function () {
-    //     $(this).find(".contents_title").removeClass("active");
-    //     $(this).find(".overlay").removeClass("active");
-    //     $(this).find("img").removeClass("active");
-    // });
+    $newsContents.hover(function () {
+        $(this).addClass("active");
+    },function () {
+        $(this).removeClass("active");
+    });
 
 
    // notice rolling
-//    var $notice = $(".notice_rolling"),
-//         rolling = $notice.find(".rolling");
+    var $notice = $(".notice_rolling"),
+        rolling = $notice.find(".rolling");
 
-//     var rollingTimer;
+    var rollingTimer;
 
-//     rollingTimer = window.setInterval(doRolling, 2000);
+    rollingTimer = window.setInterval(doRolling, 2000);
 
-//     function doRolling () {
-//         rolling.css({"transition":"0.4s",top:"-2em"});
+    function doRolling () {
+        rolling.css({"transition":"0.4s",top:"-2rem"});
+        window.setTimeout(function () {
+            rolling.removeAttr("style");
+            rolling.append(rolling.children().first());
+        }, 400); 
+    };
 
-//         window.setTimeout(function () {
-//             rolling.removeAttr("style");
-//             rolling.append(rolling.children().first());
-//         }, 400); 
-//     };
-
-//     $notice.hover(function () {
-//         clearInterval(rollingTimer);
-//     }, function() {
-//         rollingTimer = window.setInterval(doRolling, 2000);
-//     });
+    $notice.hover(function () {
+        clearInterval(rollingTimer);
+    }, function() {
+        rollingTimer = window.setInterval(doRolling, 2000);
+    });
 
 });

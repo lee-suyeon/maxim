@@ -73,6 +73,27 @@ p.title_sub {
 }
 #skip a:active, #skip a:focus {top: 0;}
 
+/* topbutton */
+#top {
+    position: fixed;
+    bottom: 0; right: -6rem;
+    z-index: 9999;
+    transition: 0.3s;
+}
+#top a {
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    font-size: 2rem;
+    background-color: #e94d50;
+    color: #fff;
+    position: relative;
+}
+#top a em {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* 헤더 영역 */
 #header {
@@ -210,19 +231,17 @@ p.title_sub {
     position: relative;
     width: 100%;
     height: 70rem;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .slideshow .slideshow_slides {
-    position: absolute;
-    top: 0; left: 0;
-    width: 300%;
+    width: 100%;
     height: 100%;
 }
 .slideshow .slideshow_slides > div {
-    position: relative;
-    width: 33.3333%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
     height: 100%;
-    float: left;
 }
 .slideshow .pagination {
     position: absolute;
@@ -245,12 +264,12 @@ p.title_sub {
     z-index: 10;
 }
 .slideshow button {
-    display: block;
-    width: 32px;
-    height: 65px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    display: block;
+    width: 32px;
+    height: 65px;
     opacity: 0.7;
     cursor: pointer;
     z-index: 200;
@@ -637,8 +656,8 @@ p.title_sub {
     transition: 0.3s;
 }
 
-.product_slide .slideshow_nav .prev,
-.product_slide .slideshow_nav .next {
+.product_slide .product_nav .prev,
+.product_slide .product_nav .next {
     position: absolute;
     top: 50%; 
     transform: translateY(-50%);
@@ -647,17 +666,17 @@ p.title_sub {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 30;
 }
-.product_slide .slideshow_nav .prev:active,
-.product_slide .slideshow_nav .next:active {background-color: #e94d50;}
-.product_slide .slideshow_nav button {
+.product_slide .product_nav .prev:active,
+.product_slide .product_nav .next:active {background-color: #e94d50;}
+.product_slide .product_nav button {
     width: 10px;
     height: 20px;
     margin-top: 15px;
 }
-.product_slide .slideshow_nav .prev {left: 0;}
-.product_slide .slideshow_nav .next {right: 0;}
-.product_slide .slideshow_nav .prev button {background-position: -5px -92px;}
-.product_slide .slideshow_nav .next button {background-position: -18px -92px;}
+.product_slide .product_nav .prev {left: 0;}
+.product_slide .product_nav .next {right: 0;}
+.product_slide .product_nav .prev button {background-position: -5px -92px;}
+.product_slide .product_nav .next button {background-position: -18px -92px;}
 
 
 /* news */
@@ -673,9 +692,7 @@ p.title_sub {
     display: block;
     transition: 0.3s;
 }
-.news .news_contents img.active {
-    transform: scale(1.05);
-}
+
 .news_contents > div {
     position: relative;
     overflow: hidden;
@@ -706,10 +723,12 @@ p.title_sub {
     transition: 0.3s;
     z-index: 100;
 }
-.contents_title.active{
+.news_contents > div.active .contents_title {
     color: #e94d50;
     background: #fff;
 }
+.news_contents > div.active .overlay {display: block;}
+.news_contents > div.active img {transform: scale(1.05);}
 .news_contents .tv_cf .videowrapper {
     position: relative;
     height: 0;
@@ -731,7 +750,6 @@ p.title_sub {
     transition: 0.3s;
     z-index: 50;
 }
-.news_contents .overlay.active {display: block;}
 .news_contents .overlay .more {
     position: absolute;
     top: 50%; left: 50%;
@@ -740,13 +758,14 @@ p.title_sub {
     height: 50px;
     background-position: -35px -75px;
     cursor: pointer;
+    z-index: 10;
 }
 .news_contents .overlay span {
     width: 100px;
     display: block;
     color: #fff;
     font-size: 1.6rem;
-    margin-top: 5.5rem 0 0 -30px;
+    margin: 5.5rem 0 0 -30px;
 }
 
 
@@ -1005,7 +1024,7 @@ p.title_sub {
     .about .slogan_wrap > div:last-child {margin-bottom: 24px;}
 
     .product_slide .product_list {width: 300%;}
-
+    .product_slide .product_list.signature {width: 400%;}
     .news .news_contents {grid-template-columns: repeat(2, 1fr);}
     .news_contents .event {
         grid-column: 1 / 2;
@@ -1031,7 +1050,6 @@ p.title_sub {
     }
     .footer .notice h4 {
         width: 22%;
-        text-align: right;
         margin-right: 0;
     }
     .footer .notice ul {width: 80%;}
@@ -1092,18 +1110,18 @@ p.title_sub {
         height: 34px;
         background-position: -117px -46px;
     }
-    .product_slide .slideshow_nav .prev,
-    .product_slide .slideshow_nav .next {
+    .product_slide .product_nav .prev,
+    .product_slide .product_nav .next {
         width: 20px;
         height: 30px;
     }
-    .product_slide .slideshow_nav button {
+    .product_slide .product_nav button {
         width: 6px;
         height: 13px;
         margin-top: 9px;
     }
-    .product_slide .slideshow_nav .prev button {background-position: 0 -55px;}
-    .product_slide .slideshow_nav .next button {background-position: -9px -55px;}
+    .product_slide .product_nav .prev button {background-position: 0 -55px;}
+    .product_slide .product_nav .next button {background-position: -9px -55px;}
 
     .news_contents .overlay .more {
         width: 30px;
@@ -1130,6 +1148,7 @@ p.title_sub {
 
     .about .slogan_wrap > div:last-child {margin-bottom: 8px;}
     .product_slide .product_list {width: 600%;}
+    .product_slide .product_list.signature {width: 800%;}
     .guide {padding-top: 13rem;}
     .guide h3 {
         font-size: 5rem;
