@@ -1,16 +1,9 @@
 @charset "utf-8";
 html{font-size: 10px;}
 
-/* 레이아웃  */
-
-
-
-
-
 
 /* 센터 정렬 */
 .container {
-    /* position: relative; */
     width: 1290px;
     margin: 0 auto;
 }
@@ -54,7 +47,6 @@ p.title_sub {
 }
 /* 로우 영역 */
 .row {padding: 0 28px;}
-
 
 /* 스킵메뉴 */
 #skip {position: relative;}
@@ -218,20 +210,11 @@ p.title_sub {
 
 
 /* 배너 영역 */
-#banner:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 15rem;
-    z-index: 10;
-    background: linear-gradient(#000, transparent);
-}
 .slideshow {
     position: relative;
     width: 100%;
-    height: 70rem;
-    /* overflow: hidden; */
+    height: 75rem;
+    overflow: hidden;
 }
 .slideshow .slideshow_slides {
     width: 100%;
@@ -283,21 +266,21 @@ p.title_sub {
     background-position: -24px -5px;
 }
 .slideshow_slides .banner1 {background: url(../img/banner1.jpg) no-repeat center center /cover;}
-.slideshow_slides .banner1 h3 {
+.slideshow_slides .banner1 .banner_cont {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
-.slideshow_slides .banner1 h3 img {width: 32rem;}
-.slideshow_slides .banner1 h3 em {
+.slideshow_slides .banner1 .banner_cont img {width: 32rem;}
+.slideshow_slides .banner1 .banner_cont em {
     display: block;
     font-size: 3.8rem;
     color: #fff;
     font-weight: 300;
     margin-top: 0.7rem;
 }
-.slideshow_slides .banner1 h3 p {
+.slideshow_slides .banner1 .banner_cont p {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 300;
@@ -307,60 +290,61 @@ p.title_sub {
 }
 
 .slideshow_slides .banner2 {background: url(../img/banner2.jpg) no-repeat center center /cover;}
-.slideshow_slides .banner2 h3 {
+.slideshow_slides .banner2 .banner_cont {
     position: absolute;
     bottom: 10rem; left: 15%;
     font-size: 3.8rem;
     color: #e0dec1;
     line-height: 1.3;
 }
-.slideshow_slides .banner2 h3 span.six {
+.slideshow_slides .banner2 .banner_cont span.six {
     display: inline-block;
     width: 90px;
     height: 174px;
     background-position: -100px -5px;
     margin-right: 1rem;
 }
-.slideshow_slides .banner2 h3 .wrap {
+.slideshow_slides .banner2 .banner_cont .wrap {
     display: inline-block;
     vertical-align: bottom;
     padding-bottom: 1rem;
 }
-.slideshow_slides .banner2 h3 em {font-weight: 300;}
-.slideshow_slides .banner2 h3 strong {
+.slideshow_slides .banner2 .banner_cont em {font-weight: 300;}
+.slideshow_slides .banner2 .banner_cont strong {
     display: block;
     font-weight: bold;
 }
 .slideshow_slides .banner2 p {
+    position: absolute;
+    top: 18rem;
+    left: 60%;
     font-size: 3.2rem;
     font-weight: 200;
     color: #e0dec1;
     line-height: 1.2;
     letter-spacing: -1px;
-    position: absolute;
-    top: 18rem; right: 15%;
 }
 
 .slideshow_slides .banner3 {background: url(../img/banner3.jpg) no-repeat center center /cover;}
-.slideshow_slides .banner3 h3 {
+.slideshow_slides .banner3 .banner_cont {
     position: absolute;
-    top: 15rem; left: 75%;
+    top: 15rem; left: 65%;
     transform: translateX(-50%);
     color: #fcd3c1;
 }
-.slideshow_slides .banner3 h3 em {
+.slideshow_slides .banner3 .banner_cont em {
     display: block;
     line-height: 1.2;
     font-size: 3.8rem;
 }
-.slideshow_slides .banner3 h3 .kanu_logo {
+.slideshow_slides .banner3 .banner_cont .kanu_logo {
     display: block;
     width: 270px;
     height: 70px;
     background-position: -195px -5px;
-    margin: 1.2rem 0;
+    margin: 1rem 0;
 }
-.slideshow_slides .banner3 h3 strong {
+.slideshow_slides .banner3 .banner_cont strong {
     display: block;
     font-size: 3rem;
     font-weight: 500;
@@ -487,11 +471,11 @@ p.title_sub {
     box-sizing: border-box;
     padding: 2rem 2.4rem;
     transition: 0.3s;
+    cursor: pointer;
 }
 .guide a:hover {
     background-color: #fff;
     color: #000;
-    cursor: pointer;
 }
 
 
@@ -708,9 +692,7 @@ p.title_sub {
     grid-column: 2 / span 2;
     grid-row: 1 / 2;
 }
-.news_contents .new_product {
-    grid-row: 2 / 3;
-}
+.news_contents .new_product {grid-row: 2 / 3;}
 .news_contents .contents_title {
     display: block;
     position: absolute;
@@ -742,7 +724,7 @@ p.title_sub {
     height: 100%;
 }
 .news_contents .overlay {
-    display: none;
+    /* display: none; */
     position: absolute;
     top: 0; bottom: 0;
     left: 0; right: 0;
@@ -765,7 +747,7 @@ p.title_sub {
     display: block;
     color: #fff;
     font-size: 1.6rem;
-    margin: 5.5rem 0 0 -30px;
+    margin: 6rem 0 0 -15px;
 }
 
 
@@ -914,11 +896,12 @@ p.title_sub {
 .footer .footer_info address span {margin-left: 2rem;}
 
 
-
- /* -----------------------------------------------------------------------font-size: 10px */
+/* 미디어쿼리 */
 @media (max-width: 1290px) {
     .container {width: 100%;}
-    
+
+    .slideshow_slides .banner3 .banner_cont {left: 70%;}
+
     .product_tab ul {width: 80%;}
     .product_contents {
         background-image: none;
@@ -928,18 +911,12 @@ p.title_sub {
     .product_contents .product_slide {width: 100%;}
     .product_slide .product_list {width: 200%;}
 }
-@media (max-width: 1024px) {
 
-
-
-
-}
 @media (max-width: 960px) {
-    /* -----------------------------------------------------------------------font-size: 9px */
     html {font-size: 9px;} 
     body {background-color: #f6f2ec;}
-
     .row {padding: 0 24px;}
+
     #product .row {
         background-color: #fff; 
         padding: 24px;
@@ -981,20 +958,14 @@ p.title_sub {
     }
     .news {padding: 10rem 0 0;}
 
-
     .customers {padding: 8rem 0 4rem;}
     .customers .service li a p {display: none;}
     .customers .service li a .img_svg {background: #f6f2ec;}
-
-
 }
 
 @media (max-width: 768px) {
-     /* -----------------------------------------------------------------------font-size: 8px */
     html {font-size: 8px;}
 
-
-    
     #skip {display: none;}
     #header {
         position: static;
@@ -1011,8 +982,8 @@ p.title_sub {
     }
     .header h1 a {padding: 1.3rem 0 0;}
     .nav {display: none;}
-    #banner:before {display: none;}
 
+    .slideshow_slides .banner2 p {top: 12rem; left: 60%;}
 
     .about {padding: 8rem 0 0;}
     .about h2:before {display: none;}
@@ -1025,6 +996,7 @@ p.title_sub {
 
     .product_slide .product_list {width: 300%;}
     .product_slide .product_list.signature {width: 400%;}
+
     .news .news_contents {grid-template-columns: repeat(2, 1fr);}
     .news_contents .event {
         grid-column: 1 / 2;
@@ -1042,7 +1014,7 @@ p.title_sub {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
     }
-
+    .news_contents .overlay span {display: none;}
 
     .footer {
         text-align: center;
@@ -1058,7 +1030,6 @@ p.title_sub {
 } 
 
 @media (max-width: 600px) {
-    /* -----------------------------------------------------------------------font-size: 6px */
     html {font-size: 6px;}
     .icon {background-size: 300px;}
     .row {padding: 0 16px;}
@@ -1077,16 +1048,15 @@ p.title_sub {
     }
     .slideshow button.prev {background-position: -14px -3px;}
     .slideshow button.next {background-position: -37px -3px;}
-
-    .slideshow_slides .banner2 h3 span.six {
+    .slideshow_slides .banner2 .banner_cont span.six {
         width: 54px;
         height: 106px;
         background-position: -60px -3px;
     }
-    .slideshow_slides .banner3 h3 .kanu_logo {
+    .slideshow_slides .banner3 .banner_cont .kanu_logo {
         width: 159px;
         height: 43px;
-        background-position: -116px -3px;
+        background-position: -116px -2px;
     }
     .about .slogan_wrap > div:last-child {margin-bottom: 16px;}
     .about .slogan_wrap > div span.coffeebean {
@@ -1110,6 +1080,7 @@ p.title_sub {
         height: 34px;
         background-position: -117px -46px;
     }
+
     .product_slide .product_nav .prev,
     .product_slide .product_nav .next {
         width: 20px;
@@ -1129,10 +1100,6 @@ p.title_sub {
         background-position: -21px -45px;
         cursor: pointer;
     }
-    .news_contents .overlay span {margin-left: -42px;}
-
-
-
 
 }
 @media (max-width: 480px) {
@@ -1147,8 +1114,10 @@ p.title_sub {
     }
 
     .about .slogan_wrap > div:last-child {margin-bottom: 8px;}
+
     .product_slide .product_list {width: 600%;}
     .product_slide .product_list.signature {width: 800%;}
+
     .guide {padding-top: 13rem;}
     .guide h3 {
         font-size: 5rem;
@@ -1160,11 +1129,11 @@ p.title_sub {
     .news_contents .event {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
-      }
-      .news_contents .tv_cf {
+    }
+    .news_contents .tv_cf {
         grid-column: 1 / 2 ;
         grid-row: 4 / 5;
-      }
+    }
     .news_contents .grand_open {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
@@ -1175,8 +1144,7 @@ p.title_sub {
     }
 
     .customers .service li {border: none;}
+
     .footer .notice h4 {text-align: center;} 
-}  
-@media (max-width: 360px) {
-    
+
 }

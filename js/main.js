@@ -1,4 +1,8 @@
 $(function () {
+    function toTheTop () {
+        $("html,body").stop().animate({scrollTop : 0});
+    }
+    toTheTop();
 
     // title scroll event
     var $contents = $("section"),
@@ -20,8 +24,8 @@ $(function () {
 
     $topBtn.click(function (e) {
         e.preventDefault();
-        $("html,body").stop().animate({scrollTop : 0});
-    })
+        toTheTop();
+    });
  
     //배너 슬라이드
     var $slideshow = $(".slideshow"),
@@ -36,7 +40,7 @@ $(function () {
 
     $slideGroup.children("div:gt(0)").hide();
 
-    timer = window.setInterval(fadeInSlide, 3000)    
+    // timer = window.setInterval(fadeInSlide, 3000)    
     
     function fadeInSlide(){
         next = (currentIndex + 1) % $banner.length;
@@ -60,11 +64,11 @@ $(function () {
         }
     });
     
-    $slideshow.hover(function () {
-        clearInterval(timer);
-    }, function () {
-        timer = window.setInterval(fadeInSlide, 3000);
-    });
+    // $slideshow.hover(function () {
+    //     clearInterval(timer);
+    // }, function () {
+    //     timer = window.setInterval(fadeInSlide, 3000);
+    // });
 
 
 
