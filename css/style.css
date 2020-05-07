@@ -732,22 +732,23 @@ p.title_sub {
     transition: 0.3s;
     z-index: 50;
 }
-.news_contents .overlay .more {
+.news_contents .overlay a {
+    display: block;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.news_contents .overlay a span.more {
+    display: block;
     width: 50px;
     height: 50px;
     background-position: -35px -75px;
-    cursor: pointer;
-    z-index: 10;
+    margin: 0 auto 1rem;
 }
-.news_contents .overlay span {
-    width: 100px;
-    display: block;
+.news_contents .overlay a em {
     color: #fff;
     font-size: 1.6rem;
-    margin: 6rem 0 0 -15px;
 }
 
 
@@ -1014,7 +1015,6 @@ p.title_sub {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
     }
-    .news_contents .overlay span {display: none;}
 
     .footer {
         text-align: center;
@@ -1080,7 +1080,7 @@ p.title_sub {
         height: 34px;
         background-position: -117px -46px;
     }
-
+    
     .product_slide .product_nav .prev,
     .product_slide .product_nav .next {
         width: 20px;
@@ -1094,16 +1094,14 @@ p.title_sub {
     .product_slide .product_nav .prev button {background-position: 0 -55px;}
     .product_slide .product_nav .next button {background-position: -9px -55px;}
 
-    .news_contents .overlay .more {
+    .news_contents .overlay a span.more {
         width: 30px;
         height: 30px;
         background-position: -21px -45px;
-        cursor: pointer;
     }
 
 }
 @media (max-width: 480px) {
-    /* -----------------------------------------------------------------------font-size: 7px */
     html {font-size: 6px;}
     .row {padding: 0 8px;}
     #product .row,
