@@ -732,21 +732,20 @@ p.title_sub {
     transition: 0.3s;
     z-index: 50;
 }
-.news_contents .overlay a {
-    display: block;
+.news_contents .overlay .more {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
 }
-.news_contents .overlay a span.more {
+.news_contents .overlay .more span {
     display: block;
     width: 50px;
     height: 50px;
     background-position: -35px -75px;
     margin: 0 auto 1rem;
 }
-.news_contents .overlay a em {
+.news_contents .overlay .more em {
     color: #fff;
     font-size: 1.6rem;
 }
@@ -1094,7 +1093,7 @@ p.title_sub {
     .product_slide .product_nav .prev button {background-position: 0 -55px;}
     .product_slide .product_nav .next button {background-position: -9px -55px;}
 
-    .news_contents .overlay a span.more {
+    .news_contents .overlay .more span {
         width: 30px;
         height: 30px;
         background-position: -21px -45px;
