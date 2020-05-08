@@ -724,7 +724,7 @@ p.title_sub {
     height: 100%;
 }
 .news_contents .overlay {
-    /* display: none; */
+    display: none;
     position: absolute;
     top: 0; bottom: 0;
     left: 0; right: 0;

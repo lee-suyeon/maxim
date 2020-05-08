@@ -198,4 +198,5 @@ $(function () {
         rollingTimer = window.setInterval(doRolling, 2000);
     });
 
+
 });
